@@ -30,7 +30,7 @@ def fill_data():
 
     groups = ['11-A', '12-A', '13-A']
 
-    fake = faker.Faker('uk_UA')
+    fake = faker.Faker('en_US')
     number_of_teachers = 5
     number_of_students = 50
 
