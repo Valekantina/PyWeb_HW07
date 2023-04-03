@@ -16,18 +16,19 @@ def date_range(start: date, end: date) -> list:
         current_date += timedelta(1)
     return result
 
+
 def fill_data():
     disciplines = [
-        'Вища математика',
-        'Дискретна математика',
-        'Лінійна алгебра',
-        'Теорія імовірності',
-        'Статистика',
-        'Математичний аналіз',
-        'Програмування'
+        'Advanced English',
+        'Psychology',
+        'Theory and Practice of Business Communication',
+        'Strategic Brand Management',
+        'Integrated Marketing Communication',
+        'Intercultural Business Communication',
+        'Approaches to Cultural and Literary Studies'
     ]
 
-    groups = ['ПМ-22-1', 'ПМ-22-2', 'ПМ-22-3']
+    groups = ['11-A', '12-A', '13-A']
 
     fake = faker.Faker('uk_UA')
     number_of_teachers = 5
@@ -42,7 +43,8 @@ def fill_data():
     def seed_disciplines():
         teacher_ids = session.scalars(select(Teacher.id)).all()
         for discipline in disciplines:
-            session.add(Discipline(name=discipline, teacher_id=choice(teacher_ids)))
+            session.add(Discipline(name=discipline,
+                        teacher_id=choice(teacher_ids)))
         session.commit()
 
     def seed_groups():
